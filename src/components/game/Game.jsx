@@ -11,7 +11,7 @@ function Game() {
   const [bestScore, setBestScore] = useState(null);
 
   useEffect(() => {
-    fetchWithAuth("http://localhost:5000/user/bestScore")
+    fetchWithAuth("https://guess-game-server.onrender.com/user/bestScore")
       .then((res) => res.json())
       .then((data) => {console.log("best score ",data.bestScore); setBestScore(data.bestScore)})
       .catch(() => console.warn("Failed to load best score"));
@@ -29,7 +29,7 @@ function Game() {
       setGameWon(true);
       if (!bestScore || tries < bestScore) {
         setBestScore(tries);
-        fetchWithAuth("http://localhost:5000/user/bestScore", {
+        fetchWithAuth("https://guess-game-server.onrender.com/user/bestScore", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ bestScore: tries }),
@@ -48,7 +48,7 @@ function Game() {
   };
 
   const handleLogout = async () => {
-    await fetch("http://localhost:5000/auth/logout", {
+    await fetch("https://guess-game-server.onrender.com/auth/logout", {
       method: "POST",
       credentials: "include",
     });

@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
   const checkAuth = async () => {
     try {
-      const res = await fetchWithAuth("http://localhost:5000/auth/check");
+      const res = await fetchWithAuth("https://guess-game-server.onrender.com/auth/check");
       setAuthenticated(res.ok);
     } catch {
       setAuthenticated(false);

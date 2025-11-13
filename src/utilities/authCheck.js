@@ -32,7 +32,7 @@ export async function fetchWithAuth(url, options = {}) {
 
 async function refreshAccessToken() {
   try {
-    const res = await fetch("http://localhost:5000/auth/refresh", {
+    const res = await fetch("https://guess-game-server.onrender.com/auth/refresh", {
       method: "POST",
       credentials: "include",
     });
