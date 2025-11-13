@@ -10,7 +10,7 @@ export async function fetchWithAuth(url, options = {}) {
     credentials: "include",
   });
 
-  if ( res.status === 401 || res.status === 403) {
+  if ( res.status === 401) {
     const refreshed = await refreshAccessToken();
     if (!refreshed) {
       window.location.href = "/signUp";
