@@ -37,7 +37,7 @@ const SignUpForm = () => {
       }
 
     
-      navigate("/game");
+      navigate("/login");
     } catch (error) {
       setErrorMsg(error.message);
     } finally {

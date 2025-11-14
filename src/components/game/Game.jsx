@@ -53,7 +53,7 @@ function Game() {
       credentials: "include",
     });
     sessionStorage.removeItem("accessToken");
-    window.location.href = "/signUp";
+    window.location.href = "/login";
   };
 
   return (
