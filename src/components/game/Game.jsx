@@ -35,7 +35,7 @@ function Game() {
           body: JSON.stringify({ bestScore: tries }),
         });
       }
-    } else setFeedback(num < targetNumber ? "📈 Higher!" : "📉 Lower!");
+    } else setFeedback(num < targetNumber ? "📈 Go Higher!" : "📉 Go Lower!");
 
     setGuess("");
   };
@@ -71,12 +71,14 @@ function Game() {
 
         {!gameWon ? (
           <>
-            <input
-              value={guess}
-              onChange={(e) => setGuess(e.target.value)}
-              placeholder="Enter guess"
-              className="border rounded-md p-2 text-center w-full mb-3"
-            />
+           <input
+  value={guess}
+  onChange={(e) => setGuess(e.target.value)}
+  onKeyDown={(e) => e.key === "Enter" && handleGuess()}
+  placeholder="Enter guess"
+  className="border rounded-md p-2 text-center w-full mb-3"
+  type="number"
+/>
             <button
               onClick={handleGuess}
               className="bg-blue-600 text-white w-full py-2 rounded-md hover:bg-blue-700"
